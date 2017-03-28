@@ -8,7 +8,9 @@
 #following naming schema: DATA_YYYMMDD_hhmm.csv.gz            #
 ###############################################################
 
-#Check to see how many datasets are in 'incoming'. Ignore errors because ls throws a non-zero exit code when your glob doesn't return any matches.
+#Check to see how many datasets are in 'incoming'. Ignore errors 
+#because ls throws a non-zero exit code when your glob doesn't 
+#return any matches.
 numArchives=$((ls incoming/*.csv.gz | wc -l) 2> /dev/null)
 
 #If there are no incoming datasets, exit with a status code.
@@ -20,4 +22,13 @@ else
 	echo "$(date) - There are $numArchives archives to parse."
 fi
 
-for
+echo && echo "$(date) - Parsing files now..."
+
+#For each archive in 'incoming', create a folder within 'data'
+#with the same base name. Trim off the unncessary parts including 
+#'DATA_' and '.csv.gz'.
+for i in $(ls incoming/*.csv.gz)
+do
+	dirName=$(echo $i | sed 's@.*/@@' | sed 's/\..*$//')
+	mkdir data/$dirName
+done
