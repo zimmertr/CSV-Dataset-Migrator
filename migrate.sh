@@ -11,7 +11,7 @@ echo
 if [[ -f "migrate.lck" ]]
 then
 	echo "Is the last job still running? If you're sure it's not, please delete ./migrate.lck to continue." && echo 
-	echo "$(date) - [ERROR] - migrate.lck exists. Cannot continue. " >> output.log 2>&1
+	echo "$(date) - [ERROR] - A lock file exists. Cannot continue. " >> output.log 2>&1
 	exit 1
 else
 	touch migrate.lck
