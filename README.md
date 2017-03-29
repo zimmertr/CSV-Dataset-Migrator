@@ -1,7 +1,7 @@
 # CSV Dataset Migrator
 
 ### Summary:
-CSV Dataset Migrator is an application that manages CSV datasets. When called, it will check the contents of the ./incoming/ directory for .csv.gz archives and, if detected, will extract and migrate the contents to the ./data/ directory. Supports logging, error handling, emails, exit codes, and interactive problem solving.
+CSV Dataset Migrator is an application that manages CSV datasets. When called, it will check the contents of the `./incoming/` directory for `.csv.gz` archives and, if detected, will extract and migrate the contents to the `./data/` directory. Supports logging, error handling, emails, exit codes, and interactive problem solving.
 
 
 ### Features:
@@ -19,15 +19,15 @@ CSV Dataset Migrator is an application that manages CSV datasets. When called, i
     - Has basic error handling.                                                                                
 
 ### How To Use:
-  1) Clone the application: $git clone https://github.com/zimmertr/CSV-Dataset-Migrator.git  
-  2) Make the application executable: $chmod +x migrate.sh  
-  3) Call the application: $./migrate.sh  
-  3a) In quiet mode: $./migrate.sh 0  
-  3b) With custom timeout: $./migrate.sh 15  
-  3c) With an hourly cron task: 0 * * * * /home/admin/migrate.sh 0  
+  1) Clone the application: `$git clone https://github.com/zimmertr/CSV-Dataset-Migrator.git`  
+  2) Make the application executable: `$chmod +x migrate.sh`  
+  3) Call the application: `$./migrate.sh`    
+  3a) In quiet mode: `$./migrate.sh 0`  
+  3b) With custom timeout: `$./migrate.sh 15`  
+  3c) With an hourly cron task: `0 * * * * /home/admin/migrate.sh 0`  
 
 ### Dependencies
-The application relies on mutt for sending emails. If mutt is not installed, email functionality will not work but the program will still function as expected. Mutt can be found within most default package manager repositories: http://www.mutt.org/download.html
+The application relies on `mutt` for sending emails. If `mutt` is not installed, email functionality will not work but the program will still function as expected. `Mutt` can be found within most default package manager repositories: http://www.mutt.org/download.html
 
 
 **WARNING: The script must remain in the same directory as ./data/ and ./incoming/.**
