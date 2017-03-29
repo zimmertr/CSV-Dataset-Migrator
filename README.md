@@ -30,7 +30,24 @@ CSV Dataset Migrator is an application that manages CSV datasets. When called, i
 The application relies on mutt for sending emails. If mutt is not installed, email functionality will not work but the program will still function as expected. Mutt can be found within most default package manager repositories: http://www.mutt.org/download.html
 
 
+---
+
 **WARNING: The script must remain in the same directory as ./data/ and ./incoming/.**
+
+### Screenshots
+
+** Showcasing the Application **
+
+![Alt text](https://raw.githubusercontent.com/zimmertr/CSV-Dataset-Migrator/master/screenshots/csv_dataset_migrator.png "Example Execution")
+
+** Example Log File **
+
+![Alt text](https://raw.githubusercontent.com/zimmertr/CSV-Dataset-Migrator/master/screenshots/example_log.png "Example Log")
+
+** Example Email **
+
+![Alt text](https://raw.githubusercontent.com/zimmertr/CSV-Dataset-Migrator/master/screenshots/example_email.png "Example Email")
+
 
 ---
 
