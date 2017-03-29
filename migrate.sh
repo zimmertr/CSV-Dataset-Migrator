@@ -93,7 +93,7 @@ do
 						done;
 						echo "$(date) - [WARN] - The file named $fileName already exists within ./data/. The file was renamed to $newName." >> output.log 2>&1;
 						gunzip -c $i > data/$newName 2>&1;
-						rm $fileName
+						rm $fileName >> /dev/null 2>&1
 						break;;
 
 					[Ee]* ) echo "$(date) - [ERROR] - CSV Dataset Migrator was interrupted before completion." >> output.log 2>&1;
@@ -101,7 +101,7 @@ do
 						echo
 						exit 1;;
 
-					* ) echo "Please answer with (Ss/Rr/Aa/Ee)."
+					* ) echo "Please answer with (Ss/Rr/Aa/Ee)." && echo
 				esac 
 			else
 				break
@@ -114,7 +114,8 @@ do
                 echo "$(date) - [INFO] - Extracting $i to data..." >> output.log 2>&1
                 gunzip -c $i > data/$fileName 2>&1
                 echo "$(date) - [INFO] - Cleaning up old archive..." >> output.log 2>&1
-                rm $i
+		#Remove the file. Ignore error if the file was previously removed due to rename.
+                rm >> /dev/null 2>&1
         fi
 done
 echo && echo "$(date) - [INFO] - CSV Dataset Migrator has finished a job. " >> output.log 2>&1
