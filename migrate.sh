@@ -1,9 +1,9 @@
 #!/bin/bash
 #####################################################################################################################
 #####################################################################################################################
-###CSV Dataset Migrator is an application manages CSV datasets. When called, it will check the contents of the    ###
-###./incoming/ directory for gz-compress archives and, if detected, will extract and migrate the contents to the  ###
-###./data/ directory. Supports logging, error handling, emails, exit codes, and interactive solutions.            ###
+###CSV Dataset Migrator is an application that manages CSV datasets. When called, it will check the contents of   ###
+###the ./incoming/ directory for .csv.gz archives and, if detected, will extract and migrate the contents to      ###
+###the ./data/ directory. Supports logging, error handling, emails, exit codes, and interactive problem solving.  ###
 ### 														  ###
 ###Run the application manually:                 $./migrate.sh		                			  ###
 ###Run the application with a custom timeout:    $./migrate.sh 15						  ###
