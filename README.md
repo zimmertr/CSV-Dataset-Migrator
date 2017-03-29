@@ -30,11 +30,12 @@ CSV Dataset Migrator is an application that manages CSV datasets. When called, i
 The application relies on mutt for sending emails. If mutt is not installed, email functionality will not work but the program will still function as expected. Mutt can be found within most default package manager repositories: http://www.mutt.org/download.html
 
 
----
-
 **WARNING: The script must remain in the same directory as ./data/ and ./incoming/.**
 
-### Screenshots
+
+---
+
+## Screenshots
 
 **Showcasing the Application**
 
