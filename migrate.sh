@@ -6,6 +6,7 @@ echo "******************************"
 echo
 
 
+
 #Ensure that the last job isn't still executing. 
 if [[ -f "migrate.lck" ]]
 then
@@ -15,6 +16,8 @@ then
 else
 	touch migrate.lck
 fi
+
+
 
 
 #Check to see how many datasets are in 'incoming'. Ignore errors because ls throws a non-zero exit code when your glob returns no matches. 
@@ -31,6 +34,7 @@ else
 	echo "" >> output.log 2>&1
 	echo "$(date) - [INFO] - CSV Dataset Migrator has started a new job. Migrating $numArchives archives now." >> output.log 2>&1
 fi
+
 
 
 
@@ -73,6 +77,8 @@ do
 			esac	
 		done
 	
+
+
 	#If no files with that name exist... unzip the contents to ./data/ and delete the archive.
 	else
 	
@@ -82,10 +88,12 @@ do
 		rm $i
 	fi
 done
-
 echo "$(date) - [INFO] - CSV Dataset Migrator has finished a job. " >> output.log 2>&1
 echo "" >> output.log 2>&1
 rm migrate.lck
+
+
+
 
 #Ask the user if they would like to see the log. Open it in less so user can scroll.
 echo && echo 
@@ -102,6 +110,8 @@ do
 		* ) echo "Please answer with (Yy/Nn)."
 	esac
 done
+
+
 
 
 #Ask if the user would like the log file emailed to them. Open mutt for interactive email.
