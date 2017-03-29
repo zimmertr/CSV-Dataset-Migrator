@@ -93,37 +93,29 @@ rm migrate.lck
 
 
 
-#keyPress=false
-#Ask the user if they would like to see the log. Open it in less so user can scroll.
-#echo && echo && echo "CSV Dataset Migrator has finished. Press any key to see the log. (5s timeout)"
-#for _ in {1..5}; do read -rs -n1 -t1 || printf ".";keyPress=true;done;echo
-#
-#if [[ keyPress -eq "true" ]]
-#then
-#       less output.log
-#fi
-echo && read -t 5 -p "Press any key to view the log. (5s timeout)" keyPress;
-echo $keyPress
+echo && echo && read -t 5 -n 1 -sp "CSV Dataset Migration has completed. Press 'y' to see the log file. (5s timeout)" input
+echo
 
-
-
-
-
-#Ask if the user would like the log file emailed to them. Open mutt for interactive email.
-ls -lah data/ incoming/ > tree.log
-keyPress=false
-
-echo && echo && echo "Would you like the log file to be emailed to you? (y/n) (5s timeout)" 
-for _ in {1..5}; do read -rs -n1 -t1 || printf ".";keyPress=true;done;echo
-
-if [[ keyPress -eq "true" ]]
+if [ ! -z $input ]
 then
-        mutt -s "Log requested $(date)" -a "output.log" -a "tree.log" -- sysadmin@company.com
-        echo "$(date) - [INFO] - An email of the output log was sent to the administrator." >> output.log 2>&1
+	less output.log
 fi
 
 
 
-rm tree.log
+
+echo && read -t 5 -n 1 -sp "Press 'y' to email the log file to the administrator. (5s timeout)" input
+echo
+
+if [ ! -z $input ]
+then
+	ls -lah data/ incoming/ > tree.log
+        mutt -s "Log requested $(date)" -a "output.log" -a "tree.log" -- sysadmin@company.com
+	rm tree.log
+        echo "$(date) - [INFO] - An email of the output log was sent to the administrator." >> output.log 2>&1
+fi
+echo
+
+
 exit
 
