@@ -21,7 +21,7 @@ CSV Dataset Migrator is an application that manages CSV datasets. When called, i
 ### How To Use:
   1) Clone the application: `$git clone https://github.com/zimmertr/CSV-Dataset-Migrator.git`  
   2) Make the application executable: `$chmod +x migrate.sh`  
-  3) Ensure that there are `.csv.gz` files located in `./incoming/`
+  3) Ensure that there are `.csv.gz` files located in `./incoming/`. (6 Sample archives are included)
   4) Call the application: `$./migrate.sh`    
   4a) In quiet mode: `$./migrate.sh 0`  
   4b) With custom timeout: `$./migrate.sh 15`  
