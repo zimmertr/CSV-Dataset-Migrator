@@ -26,6 +26,8 @@ CSV Dataset Migrator is an application that manages CSV datasets. When called, i
   3b) With custom timeout: $./migrate.sh 15  
   3c) With an hourly cron task: 0 * * * * /home/admin/migrate.sh 0  
 
+### Dependencies
+The application relies on mutt for sending emails. Mutt can be found within most default package manager repositories: http://www.mutt.org/download.html
 
 **WARNING: The script must remain in the same directory as ./data/ and ./incoming/.**
 
