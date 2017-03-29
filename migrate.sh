@@ -1,8 +1,8 @@
 #!/bin/bash
 echo
-echo "******************************"
-echo "*****CSV Dataset Migrator*****"
-echo "******************************"
+echo "****************************************"
+echo "**********CSV Dataset Migrator**********"
+echo "****************************************"
 echo
 
 
@@ -51,6 +51,10 @@ then
 else
         echo "There are $numArchives archives to migrate. Migrating now..." && echo
         echo "" >> output.log 2>&1
+	echo "****************************************" >> output.log 2>&1
+	echo "**********CSV Dataset Migrator**********" >> output.log 2>&1
+	echo "****************************************" >> output.log 2>&1
+	echo >>  output.log 2>&1
         echo "$(date) - [INFO] - CSV Dataset Migrator has started a new job. Migrating $numArchives archives now." >> output.log 2>&1
 fi
 
@@ -69,8 +73,9 @@ do
                 echo && echo
                 while true
                 do
-                        read -t $timeout -n 1 -sp "A file named $fileName already exists within ./data/. Would you like to Skip/Overwrite/Rename the file or Exit the program? (s/o/r/e) (Skip after $timeout second timeout)" srae
-			if [! -z $srae ]
+                        read -t $timeout -n 1 -sp "A file named $fileName already exists. Skip/Overwrite/Rename the file or Exit? (s/o/r/e) (Skip after $timeout second timeout)" srae
+			echo
+			if [ ! -z $srae ]
 			then
 
 				case $srae in
@@ -92,7 +97,8 @@ do
 
 					[Ee]* ) echo "$(date) - [ERROR] - CSV Dataset Migrator was interrupted before completion." >> output.log 2>&1;
 						rm migrate.lck;
-						exit;;
+						echo
+						exit 1;;
 
 					* ) echo "Please answer with (Ss/Rr/Aa/Ee)."
 				esac 
@@ -128,7 +134,7 @@ fi
 
 
 
-echo && read -t $timeout -n 1 -sp "Press 'y' to email the log file to the administrator. ($timeout second timeout)" input
+read -t $timeout -n 1 -sp "Press 'y' to email the log file to the administrator. ($timeout second timeout)" input
 echo
 
 if [ ! -z $input ]
