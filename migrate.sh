@@ -93,6 +93,7 @@ do
 						done;
 						echo "$(date) - [WARN] - The file named $fileName already exists within ./data/. The file was renamed to $newName." >> output.log 2>&1;
 						gunzip -c $i > data/$newName 2>&1;
+						rm $fileName
 						break;;
 
 					[Ee]* ) echo "$(date) - [ERROR] - CSV Dataset Migrator was interrupted before completion." >> output.log 2>&1;
