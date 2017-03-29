@@ -36,15 +36,15 @@ The application relies on mutt for sending emails. If mutt is not installed, ema
 
 ### Screenshots
 
-** Showcasing the Application **
+**Showcasing the Application**
 
 ![Alt text](https://raw.githubusercontent.com/zimmertr/CSV-Dataset-Migrator/master/screenshots/csv_dataset_migrator.png "Example Execution")
 
-** Example Log File **
+**Example Log File**
 
 ![Alt text](https://raw.githubusercontent.com/zimmertr/CSV-Dataset-Migrator/master/screenshots/example_log.png "Example Log")
 
-** Example Email **
+**Example Email**
 
 ![Alt text](https://raw.githubusercontent.com/zimmertr/CSV-Dataset-Migrator/master/screenshots/example_email.png "Example Email")
 
